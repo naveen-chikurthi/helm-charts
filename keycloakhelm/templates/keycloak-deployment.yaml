@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  labels:
+    app: keycloak
+spec:
+  replicas: {{ .Values.keycloak.replicas }}
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+      - name: keycloak
+        image: quay.io/keycloak/keycloak:16.1.0
+        ports:
+        - containerPort: 8080
+        env:
+        - name: KEYCLOAK_USER
+          value: {{ .Values.keycloak.admin.user | quote }}
+        - name: KEYCLOAK_PASSWORD
+          value: {{ .Values.keycloak.admin.password | quote }}
+        - name: DB_VENDOR
+          value: "postgres"
+        - name: DB_ADDR
+          value: {{ .Values.postgres.host | quote }}
+        - name: DB_PORT
+          value: {{ .Values.postgres.port | quote }}
+        - name: DB_USER
+          value: {{ .Values.postgres.admin.user | quote }}
+        - name: DB_PASSWORD
+          value: {{ .Values.postgres.admin.password | quote }}

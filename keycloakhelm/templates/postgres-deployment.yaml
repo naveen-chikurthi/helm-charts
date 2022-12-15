@@ -1,0 +1,30 @@
+{{ if .Values.local }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:14.1
+        ports:
+        - containerPort: {{ .Values.postgres.port }}
+        env:
+        - name: POSTGRES_DB
+          value: "keycloak"
+        - name: POSTGRES_USER
+          value: {{ .Values.postgres.admin.user | quote }}
+        - name: POSTGRES_PASSWORD
+          value: {{ .Values.postgres.admin.password | quote }}
+{{ end }}

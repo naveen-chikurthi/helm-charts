@@ -1,0 +1,15 @@
+ingress:
+    host: keycloak.mendix.local
+keycloak:
+    replicas: 2
+    admin:
+        user: admin
+        password: password
+local: true
+
+postgres:
+    host: postgres
+    port: 5432
+    admin:
+        user: admin
+        password: password
