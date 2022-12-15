@@ -7,7 +7,12 @@ spec:
   hostAliases:
   - ip: "127.0.0.1"
     hostnames:
-   - "keycloak.mendix.local"
+    - "keycloak.mendix.local"
+    - "bar.local"
+  - ip: "10.1.2.3"
+    hostnames:
+    - "foo.remote"
+    - "bar.remote"
   containers:
   - name: cat-hosts
     image: busybox:1.28
