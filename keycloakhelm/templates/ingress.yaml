@@ -5,6 +5,11 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  defaultBackend:
+    service:
+      name: keycloak
+      port:
+        number: 8080
   rules:
     - host: {{ .Values.ingress.host }}
       http:

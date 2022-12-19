@@ -3,12 +3,12 @@ entries:
   keycloakhelm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-12-15T16:42:37.005788+05:30"
+    created: "2022-12-19T16:40:00.290476+05:30"
     description: A Helm chart for Kubernetes
-    digest: 51bdedc066846bf91d4aec2d5fff8e258ded7fa05f34d9b33a6ed46a10644eda
+    digest: 692d6a1bec6698be9d64f051396974b752713afb8f1132bb588a0abb766bb3bf
     name: keycloakhelm
     type: application
     urls:
     - keycloakhelm-0.1.0.tgz
     version: 0.1.0
-generated: "2022-12-15T16:42:37.002979+05:30"
+generated: "2022-12-19T16:40:00.289453+05:30"
