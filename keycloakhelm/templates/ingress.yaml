@@ -9,7 +9,7 @@ spec:
     service:
       name: keycloak
       port:
-        number: 8080
+        number: 8181
   rules:
     - host: {{ .Values.ingress.host }}
       http:
@@ -20,4 +20,4 @@ spec:
               service:
                 name: keycloak
                 port:
-                  number: 8080
+                  number: 8181
