@@ -18,7 +18,7 @@ spec:
       - name: keycloak
         image: quay.io/keycloak/keycloak:16.1.0
         ports:
-        - containerPort: 8181
+        - containerPort: 8080
         env:
         - name: KEYCLOAK_USER
           value: {{ .Values.keycloak.admin.user | quote }}
