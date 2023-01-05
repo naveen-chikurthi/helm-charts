@@ -1,5 +1,5 @@
 ingress:
-    host: keycloak.mendix.local
+    host: keycloak1.mendix.local
 keycloak:
     replicas: 2
     admin:
