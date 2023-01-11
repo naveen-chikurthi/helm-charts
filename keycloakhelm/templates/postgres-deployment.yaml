@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: {{ .Values.postgres.port }}
         volumeMounts:
-        - mountPath: /var/lib/postgresql/data
+        - mountPath: data/postgres-pv/
           name: postgres-pv-claim
         env:
         - name: POSTGRES_DB
