@@ -9,5 +9,5 @@ data:
 kind: ConfigMap
 metadata:
   name: keycloak-realm-configmap
-  namespace: default
+  namespace: {{ .Values.namespace }}
   
