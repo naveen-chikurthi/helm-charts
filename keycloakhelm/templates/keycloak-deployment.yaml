@@ -25,8 +25,6 @@ spec:
           value: {{ .Values.keycloak.admin.user | quote }}
         - name: KEYCLOAK_PASSWORD
           value: {{ .Values.keycloak.admin.password | quote }}
-        - name: "PROXY_ADDRESS_FORWARDING"
-          value: "true"
         - name: KEYCLOAK_IMPORT
           value: /import/default-realm.json
         - name: DB_VENDOR
