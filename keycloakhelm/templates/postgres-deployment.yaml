@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: {{ .Values.namespace }}
   labels:
     app: postgres
 spec:
@@ -21,7 +20,7 @@ spec:
         ports:
         - containerPort: {{ .Values.postgres.port }}
         volumeMounts:
-        - mountPath: /data/postgres-pv/
+        - mountPath: /var/lib/postgresql/data
           name: postgres-pv-claim
         env:
         - name: POSTGRES_DB
