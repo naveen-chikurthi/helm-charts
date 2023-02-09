@@ -1,15 +1,15 @@
 apiVersion: privatecloud.mendix.com/v1alpha1
 kind: MendixApp
 metadata:
-  name: pibconf-mendixapp
+  name: pib
 spec:
   database: # Specification of Database CR
-    servicePlan: ephemeral-db
+    servicePlan: eph-db
   storage: # Specification of Storage CR
-    servicePlan: ephemeral-str
+    servicePlan: eph-str
   mendixRuntimeVersion: 9.12.7.54456 # Mendix version to use for placeholder runtime image
-  sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/PrivateCloudTesting-0.1.3.73.mda # URL of App's source MDA
-  appURL: pibconf-mendixapp.192.168.64.2.nip.io # URL to access the app
+  sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/App_1.0.0.26.mda # URL of App's source MDA
+  appURL: pib.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
   tls: # Optional, can be omitted : set a custom TLS configuration, overriding the default operator configuration
     # Enable or disable TLS for the app
     enableTLS: false    
@@ -33,13 +33,10 @@ spec:
       NodeOne: CRITICAL
       NodeTwo: DEBUG
     microflowConstants: # Optional, can be omitted : set values for microflow constants
-      PIBConfigurator.AdminClientID: "admin-cli"
-      PIBConfigurator.LogNode: "PIBConfigurator"
-      PIBConfigurator.Password: "password"
-      PIBConfigurator.Realm: "local-realm"
-      PIBConfigurator.ServerBaseUrl: "http://keycloak/auth/"
-      PIBConfigurator.Username: "admin"
+      PIB.Realm: "local-realm"
+      PIB.ServerBaseUrl: "http://keycloak/auth/"
       Administration.EnableMendixSSOUserMigration: "False"
+      CommunityCommons.MergeMultiplePdfs_MaxAtOnce: "10"
       MendixSSO.AuthRequestExpiryDurationInMinutes: "60"
       MendixSSO.BatchSize: "10000"
       MendixSSO.ConsentToDeleteIncompatibleUsers: "False"
@@ -61,9 +58,8 @@ spec:
       MendixSSO.TokenExpiryInSeconds: "2592000"
       MendixSSO.TokenValidatorMaxClockSkew: "60"
       MendixSSO.TryAgainText: "Home"
-      MendixSSO.Version: "3.0.0"
+      MendixSSO.Version: "3.1.1"
       NanoflowCommons.Nanoflow_Commons_Version: "2.1.0"
-      WebActions.WebActions_Version: "2.4.0"
     scheduledEventExecution: NONE # Optional, can be omitted: specify which scheduled events should be enabled: ALL/NONE/SPECIFIED
     # Mendix Runtime Jetty options, in JSON format; validated and applied by the mx-m2ee-sidecar container
     jettyOptions: |-
@@ -74,5 +70,5 @@ spec:
     # All custom Mendix Runtime parameters go here, in JSON format; validated and applied by the mx-m2ee-sidecar container
     customConfiguration: |-
       {
-        "ApplicationRootUrl": "https://pibconf-mendixapp.192.168.64.2.nip.io"
+        "ApplicationRootUrl": "https://pib.apps.openshift170220.des-non-prod.rnd.mendix.com"
       }      
