@@ -24,6 +24,8 @@ spec:
           value: {{ .Values.keycloak.admin.user | quote }}
         - name: KEYCLOAK_PASSWORD
           value: {{ .Values.keycloak.admin.password | quote }}
+        - name: KEYCLOAK_IMPORT
+          value: /import/default-realm.json
         - name: DB_VENDOR
           value: "postgres"
         - name: DB_ADDR
@@ -34,3 +36,10 @@ spec:
           value: {{ .Values.postgres.admin.user | quote }}
         - name: DB_PASSWORD
           value: {{ .Values.postgres.admin.password | quote }}
+        volumeMounts:
+        - name: keycloak-volume
+          mountPath: /import
+      volumes:
+        - name: keycloak-volume
+          configMap:
+            name: keycloak-realm-configmap
