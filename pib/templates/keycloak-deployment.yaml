@@ -22,8 +22,6 @@ spec:
         env:
         - name: KEYCLOAK_USER
           value: {{ .Values.keycloak.admin.user | quote }}
-        - name: PROXY_ADDRESS_FORWARDING
-          value: "true"
         - name: KEYCLOAK_PASSWORD
           value: {{ .Values.keycloak.admin.password | quote }}
         - name: KEYCLOAK_IMPORT
