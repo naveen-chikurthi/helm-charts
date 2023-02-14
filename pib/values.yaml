@@ -4,8 +4,8 @@ keycloak:
         user: admin
         password: password
 postgres:
-    host: postgres
+    host: keycloak.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
     port: 5432
     admin:
-        user: admin
-        password: password
+        user: postgres
+        password: postgres
