@@ -32,6 +32,8 @@ spec:
           value: "postgres"
         - name: DB_ADDR
           value: {{ .Values.postgres.host | quote }}
+        - name: DB_DATABASE
+          value: {{ .Values.postgres.database | quote}}
         - name: DB_PORT
           value: {{ .Values.postgres.port | quote }}
         - name: DB_USER
