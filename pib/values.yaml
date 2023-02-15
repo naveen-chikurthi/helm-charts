@@ -7,7 +7,7 @@ database:
     vendor: mysql
     host: keycloak-mysql.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
     port: 3306
-    name: keycloak_db
+    dbName: keycloak_db
     admin:
         user: admin
         password: password
