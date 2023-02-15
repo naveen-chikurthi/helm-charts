@@ -36,6 +36,8 @@ spec:
           value: {{ .Values.postgres.admin.user | quote }}
         - name: DB_PASSWORD
           value: {{ .Values.postgres.admin.password | quote }}
+        - name: DB_DATABASE
+          value: {{ .Values.postgres.databaseName | quote }}
         volumeMounts:
         - name: keycloak-volume
           mountPath: /import

@@ -4,8 +4,9 @@ keycloak:
         user: admin
         password: password
 postgres:
-    host: keycloak.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
+    host: keycloak-rds.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
     port: 5432
+    databseName: keycloak_rds_db
     admin:
         user: postgres
         password: postgres
