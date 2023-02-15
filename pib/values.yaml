@@ -3,10 +3,11 @@ keycloak:
     admin:
         user: admin
         password: password
-postgres:
+database:
+    vendor: mysql
     host: keycloak-mysql.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
     port: 3306
-    databseName: keycloak_db
+    name: keycloak_db
     admin:
         user: admin
         password: password

@@ -27,17 +27,17 @@ spec:
         - name: KEYCLOAK_IMPORT
           value: /import/default-realm.json
         - name: DB_VENDOR
-          value: "postgres"
+          value: {{ .Values.database.vendor}}
         - name: DB_ADDR
-          value: {{ .Values.postgres.host | quote }}
+          value: {{ .Values.database.host | quote }}
         - name: DB_PORT
-          value: {{ .Values.postgres.port | quote }}
-        - name: DB_USER
-          value: {{ .Values.postgres.admin.user | quote }}
-        - name: DB_PASSWORD
-          value: {{ .Values.postgres.admin.password | quote }}
+          value: {{ .Values.database.port | quote }}
         - name: DB_DATABASE
-          value: {{ .Values.postgres.databaseName | quote }}
+          value: {{ .Values.database.name | quote }}
+        - name: DB_USER
+          value: {{ .Values.database.admin.user | quote }}
+        - name: DB_PASSWORD
+          value: {{ .Values.database.admin.password | quote }}
         volumeMounts:
         - name: keycloak-volume
           mountPath: /import
