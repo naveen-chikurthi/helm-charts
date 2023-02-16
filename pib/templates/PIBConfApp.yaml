@@ -12,7 +12,7 @@ spec:
   appURL: pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
   tls: # Optional, can be omitted : set a custom TLS configuration, overriding the default operator configuration
     # Enable or disable TLS for the app
-    enableTLS: false    
+    enableTLS: true    
   replicas: 1 # Number of replicas, set to 0 to stop all replicas
   resources: # Optional, can be omitted : set resources for Mendix Runtime container 
     limits: # Upper limit - process will be stopped if it tries to use more

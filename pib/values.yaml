@@ -1,5 +1,5 @@
 keycloak:
-    replicas: 2
+    replicas: 1
     admin:
         username: admin
         password: password
