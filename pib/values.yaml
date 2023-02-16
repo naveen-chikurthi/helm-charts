@@ -1,13 +1,13 @@
 keycloak:
     replicas: 1
     admin:
-        user: admin
+        username: admin
         password: password
 database:
-    vendor: mysql
-    host: keycloak-mysql.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
-    port: 3306
-    dbName: keycloak_db
+    vendor: postgres
+    host: keycloak-rds.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
+    port: 5432
+    dbName: keycloak_rds_db
     admin:
-        user: admin
-        password: password
+        username: postgres
+        password: postgres

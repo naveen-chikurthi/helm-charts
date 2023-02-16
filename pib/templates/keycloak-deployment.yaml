@@ -21,7 +21,7 @@ spec:
         - containerPort: 8080
         env:
         - name: KEYCLOAK_USER
-          value: {{ .Values.keycloak.admin.user | quote }}
+          value: {{ .Values.keycloak.admin.username | quote }}
         - name: KEYCLOAK_PASSWORD
           value: {{ .Values.keycloak.admin.password | quote }}
         - name: KEYCLOAK_IMPORT
@@ -35,7 +35,7 @@ spec:
         - name: DB_DATABASE
           value: {{ .Values.database.dbName | quote }}
         - name: DB_USER
-          value: {{ .Values.database.admin.user | quote }}
+          value: {{ .Values.database.admin.username | quote }}
         - name: DB_PASSWORD
           value: {{ .Values.database.admin.password | quote }}
         volumeMounts:

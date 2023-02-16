@@ -3,12 +3,12 @@ entries:
   pib:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-15T17:50:42.870012+05:30"
+    created: "2023-02-16T10:01:21.318655+05:30"
     description: A Helm chart for Kubernetes
-    digest: 87347e9f67d5b66f665f80853274bb27841a2e93b8813ab73b6b502ae6600659
+    digest: 38a06033d5dbe03ad2a0e7cbbbe851968d8dc375281eceb495ddb63c4c426943
     name: pib
     type: application
     urls:
     - pib-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-15T17:50:42.865553+05:30"
+generated: "2023-02-16T10:01:21.317816+05:30"
