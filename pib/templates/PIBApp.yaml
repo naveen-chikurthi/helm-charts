@@ -4,9 +4,9 @@ metadata:
   name: pib
 spec:
   database: # Specification of Database CR
-    servicePlan: eph-db
+    servicePlan: {{ .Values.pibMendixRuntime.database.servicePlan}}
   storage: # Specification of Storage CR
-    servicePlan: eph-str
+    servicePlan: {{ .Values.pibMendixRuntime.storage.servicePlan}}
   mendixRuntimeVersion: 9.12.7.54456 # Mendix version to use for placeholder runtime image
   sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/App_1.0.0.26.mda # URL of App's source MDA
   appURL: pib.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
@@ -26,15 +26,15 @@ spec:
     linkerd.io/inject: enabled
   runtime: # Configuration of the Mendix Runtime
     logAutosubscribeLevel: INFO # Default logging level
-    mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user. In this example, 'Welc0me!'; can be left empty keep password unchanged
-    debuggerPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for debuggerPassword. In this example, 'Welc0me!';
+    mxAdminPassword: {{ .Values.pibMendixRuntime.mxAdminPassword }} # base64 encoded password for MendixAdmin user. In this example, 'Welc0me!'; can be left empty keep password unchanged
+    debuggerPassword: {{ .Values.pibMendixRuntime.debuggerPassword }} # base64 encoded password for debuggerPassword. In this example, 'Welc0me!';
     dtapMode: P # Security & runtime mode: P for production, D for development
     logLevels: # Optional, can be omitted : set custom log levels for specific nodes
       NodeOne: CRITICAL
       NodeTwo: DEBUG
     microflowConstants: # Optional, can be omitted : set values for microflow constants
-      PIB.Realm: "local-realm"
-      PIB.ServerBaseUrl: "http://keycloak/auth/"
+      PIB.Realm: {{ .Values.pibMendixRuntime.microflowConstants.realm}}
+      PIB.ServerBaseUrl: {{ .Values.pibMendixRuntime.microflowConstants.serverBaseUrl}}
       Administration.EnableMendixSSOUserMigration: "False"
       CommunityCommons.MergeMultiplePdfs_MaxAtOnce: "10"
       MendixSSO.AuthRequestExpiryDurationInMinutes: "60"

@@ -4,9 +4,9 @@ metadata:
   name: pibconfigurator
 spec:
   database: # Specification of Database CR
-    servicePlan: eph-db
+    servicePlan: {{ .Values.pibConfiguratorMendixRuntime.database.servicePlan}}
   storage: # Specification of Storage CR
-    servicePlan: eph-str
+    servicePlan: {{ .Values.pibConfiguratorMendixRuntime.storage.servicePlan}}
   mendixRuntimeVersion: 9.12.7.54456 # Mendix version to use for placeholder runtime image
   sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/PrivateCloudTesting-0.1.3.73.mda # URL of App's source MDA
   appURL: pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
@@ -26,19 +26,19 @@ spec:
     linkerd.io/inject: enabled
   runtime: # Configuration of the Mendix Runtime
     logAutosubscribeLevel: INFO # Default logging level
-    mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user. In this example, 'Welc0me!'; can be left empty keep password unchanged
-    debuggerPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for debuggerPassword. In this example, 'Welc0me!';
+    mxAdminPassword: {{ .Values.pibConfiguratorMendixRuntime.mxAdminPassword }} # base64 encoded password for MendixAdmin user. In this example, 'Welc0me!'; can be left empty keep password unchanged
+    debuggerPassword: {{ .Values.pibConfiguratorMendixRuntime.debuggerPassword }} # base64 encoded password for debuggerPassword. In this example, 'Welc0me!';
     dtapMode: P # Security & runtime mode: P for production, D for development
     logLevels: # Optional, can be omitted : set custom log levels for specific nodes
       NodeOne: CRITICAL
       NodeTwo: DEBUG
     microflowConstants: # Optional, can be omitted : set values for microflow constants
-      PIBConfigurator.AdminClientID: "admin-cli"
-      PIBConfigurator.LogNode: "PIBConfigurator"
-      PIBConfigurator.Password: "password"
-      PIBConfigurator.Realm: "local-realm"
-      PIBConfigurator.ServerBaseUrl: "http://keycloak/auth/"
-      PIBConfigurator.Username: "admin"
+      PIBConfigurator.AdminClientID: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.adminClientID }}
+      PIBConfigurator.LogNode: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.logNode }}
+      PIBConfigurator.Password: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.password }}
+      PIBConfigurator.Realm: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.realm }}
+      PIBConfigurator.ServerBaseUrl: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.serverBaseUrl }}
+      PIBConfigurator.Username: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.username }}
       Administration.EnableMendixSSOUserMigration: "False"
       MendixSSO.AuthRequestExpiryDurationInMinutes: "60"
       MendixSSO.BatchSize: "10000"
