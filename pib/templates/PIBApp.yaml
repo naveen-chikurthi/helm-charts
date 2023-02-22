@@ -47,5 +47,5 @@ spec:
     # All custom Mendix Runtime parameters go here, in JSON format; validated and applied by the mx-m2ee-sidecar container
     customConfiguration: |-
       {
-        "ApplicationRootUrl": {{ .Values.pibMendixRuntime.applicationRootUrl }}
+        "ApplicationRootUrl": "https://pib.apps.openshift170220.des-non-prod.rnd.mendix.com"
       }      
