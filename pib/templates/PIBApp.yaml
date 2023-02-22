@@ -8,8 +8,8 @@ spec:
   storage: # Specification of Storage CR
     servicePlan: {{ .Values.pibMendixRuntime.storage.servicePlan}}
   mendixRuntimeVersion: 9.12.7.54456 # Mendix version to use for placeholder runtime image
-  sourceURL: {{ .Values.pibMendixRuntime.sourceURL}} # URL of App's source MDA
-  appURL: {{ .Values.pibMendixRuntime.appURL}} # URL to access the app
+  sourceURL: {{ .Values.pibMendixRuntime.sourceURL }} # URL of App's source MDA
+  appURL: {{ .Values.pibMendixRuntime.appURL }} # URL to access the app
   tls: # Optional, can be omitted : set a custom TLS configuration, overriding the default operator configuration
     # Enable or disable TLS for the app
     enableTLS: true    
@@ -47,5 +47,5 @@ spec:
     # All custom Mendix Runtime parameters go here, in JSON format; validated and applied by the mx-m2ee-sidecar container
     customConfiguration: |-
       {
-        "ApplicationRootUrl": {{ .Values.pibMendixRuntime.applicationRootUrl}}
+        "ApplicationRootUrl": {{ .Values.pibMendixRuntime.applicationRootUrl }}
       }      

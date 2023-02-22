@@ -21,7 +21,7 @@ pibMendixRuntime:
     appURL: pib.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
     applicationRootUrl: "https://pib.apps.openshift170220.des-non-prod.rnd.mendix.com"
     microflowConstants: 
-      realm: "default-realm"
+      realm: "local-realm"
       serverBaseUrl: "http://keycloak/auth/"
 pibConfiguratorMendixRuntime:
     database:
@@ -36,6 +36,6 @@ pibConfiguratorMendixRuntime:
       adminClientID: "admin-cli"
       logNode: "PIBConfigurator"
       password: "password"
-      realm: "default-realm"
+      realm: "local-realm"
       serverBaseUrl: "http://keycloak/auth/"
       username: "admin"
