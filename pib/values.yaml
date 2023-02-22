@@ -28,7 +28,8 @@ pibConfiguratorMendixRuntime:
       servicePlan: eph-str
     mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user
     sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/PIBConfigurator_1.0.0.83.mda
-    appURL: pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
+    appURL: pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com
+    applicationRootUrl": "https://pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com"
     microflowConstants:  
       adminClientID: "admin-cli"
       logNode: "PIBConfigurator"
