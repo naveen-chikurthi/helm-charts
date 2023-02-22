@@ -4,12 +4,12 @@ metadata:
   name: pib
 spec:
   database: # Specification of Database CR
-    servicePlan: {{ .Values.pibMendixRuntime.database.servicePlan}}
+    servicePlan: {{ .Values.pibMendixRuntime.database.servicePlan }}
   storage: # Specification of Storage CR
-    servicePlan: {{ .Values.pibMendixRuntime.storage.servicePlan}}
+    servicePlan: {{ .Values.pibMendixRuntime.storage.servicePlan }}
   mendixRuntimeVersion: 9.12.7.54456 # Mendix version to use for placeholder runtime image
-  sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/App_1.0.0.30.mda # URL of App's source MDA
-  appURL: pib.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
+  sourceURL: {{ .Values.pibMendixRuntime.sourceURL }} # URL of App's source MDA
+  appURL: {{ .Values.pibMendixRuntime.appURL }} # URL to access the app
   tls: # Optional, can be omitted : set a custom TLS configuration, overriding the default operator configuration
     # Enable or disable TLS for the app
     enableTLS: true    
@@ -47,5 +47,5 @@ spec:
     # All custom Mendix Runtime parameters go here, in JSON format; validated and applied by the mx-m2ee-sidecar container
     customConfiguration: |-
       {
-        "ApplicationRootUrl": "https://pib.apps.openshift170220.des-non-prod.rnd.mendix.com"
+        "ApplicationRootUrl": {{ .Values.pibMendixRuntime.applicationRootUrl }}
       }      
