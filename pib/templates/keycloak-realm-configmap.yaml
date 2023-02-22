@@ -2,8 +2,8 @@ apiVersion: v1
 data:
   default-realm.json: |
     {
-        "id":"local-realm",
-        "realm":"local-realm",
+        "id":"default-realm",
+        "realm":"default-realm",
         "enabled":true
     }
 kind: ConfigMap

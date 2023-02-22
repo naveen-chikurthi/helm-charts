@@ -17,9 +17,11 @@ pibMendixRuntime:
     storage: 
       servicePlan: eph-str
     mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user
-    debuggerPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for debuggerPassword
+    sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/App_1.0.0.30.mda # URL of App's source MDA
+    appURL: pib.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
+    applicationRootUrl: "https://pib.apps.openshift170220.des-non-prod.rnd.mendix.com"
     microflowConstants: 
-      realm: "local-realm"
+      realm: "default-realm"
       serverBaseUrl: "http://keycloak/auth/"
 pibConfiguratorMendixRuntime:
     database:
@@ -27,11 +29,13 @@ pibConfiguratorMendixRuntime:
     storage: 
       servicePlan: eph-str
     mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user
-    debuggerPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for debuggerPassword
+    sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/PIBConfigurator_1.0.0.83.mda # URL of App's source MDA
+    appURL: pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
+    applicationRootUrl: "https://oidc.apps.openshift170220.des-non-prod.rnd.mendix.com"
     microflowConstants:  
       adminClientID: "admin-cli"
       logNode: "PIBConfigurator"
       password: "password"
-      realm: "local-realm"
+      realm: "default-realm"
       serverBaseUrl: "http://keycloak/auth/"
       username: "admin"
