@@ -2,8 +2,8 @@ apiVersion: v1
 data:
   default-realm.json: |
     {
-        "id":"local-realm",
-        "realm":"local-realm",
+        "id":"pib-realm",
+        "realm":"pib-realm",
         "enabled":true
     }
 kind: ConfigMap

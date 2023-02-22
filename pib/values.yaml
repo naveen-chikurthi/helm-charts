@@ -19,7 +19,7 @@ pibMendixRuntime:
     mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user
     debuggerPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for debuggerPassword
     microflowConstants: 
-      realm: "local-realm"
+      realm: "pib-realm"
       serverBaseUrl: "http://keycloak/auth/"
 pibConfiguratorMendixRuntime:
     database:
@@ -32,6 +32,6 @@ pibConfiguratorMendixRuntime:
       adminClientID: "admin-cli"
       logNode: "PIBConfigurator"
       password: "password"
-      realm: "local-realm"
+      realm: "pib-realm"
       serverBaseUrl: "http://keycloak/auth/"
       username: "admin"
