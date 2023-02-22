@@ -4,12 +4,12 @@ metadata:
   name: pibconfigurator
 spec:
   database: # Specification of Database CR
-    servicePlan: {{ .Values.pibConfiguratorMendixRuntime.database.servicePlan}}
+    servicePlan: {{ .Values.pibConfiguratorMendixRuntime.database.servicePlan }}
   storage: # Specification of Storage CR
-    servicePlan: {{ .Values.pibConfiguratorMendixRuntime.storage.servicePlan}}
+    servicePlan: {{ .Values.pibConfiguratorMendixRuntime.storage.servicePlan }}
   mendixRuntimeVersion: 9.12.7.54456 # Mendix version to use for placeholder runtime image
-  sourceURL: https://github.com/naveen-chikurthi/testapp/raw/main/PIBConfigurator_1.0.0.83.mda # URL of App's source MDA
-  appURL: pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
+  sourceURL: {{ .Values.pibConfiguratorMendixRuntime.sourceURL }} # URL of App's source MDA
+  appURL: {{ .Values.pibConfiguratorMendixRuntime.appURL }} # URL to access the app
   tls: # Optional, can be omitted : set a custom TLS configuration, overriding the default operator configuration
     # Enable or disable TLS for the app
     enableTLS: true    
