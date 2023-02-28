@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: keycloak
+  name: pibserver
 spec:
   type: ClusterIP
   selector:
-    app: keycloak
+    app: pibserver
   ports:
     - protocol: TCP
       port: 80 

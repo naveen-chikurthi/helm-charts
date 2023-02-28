@@ -14,13 +14,6 @@ spec:
     # Enable or disable TLS for the app
     enableTLS: true    
   replicas: 1 # Number of replicas, set to 0 to stop all replicas
-  resources: # Optional, can be omitted : set resources for Mendix Runtime container 
-    limits: # Upper limit - process will be stopped if it tries to use more
-      cpu: 500m # 500 millicores - half of a vCPU
-      memory: 512Mi # 512 megabytes - suitable for small-scale non-production apps
-    requests: # Lower limit - needs at least these resources
-      cpu: 100m
-      memory: 512Mi
   runtimeDeploymentPodAnnotations: # Optional, can be omitted : set custom annotations for Mendix Runtime Pods
     # example: inject the Linkerd proxy sidecar
     linkerd.io/inject: enabled
@@ -32,8 +25,8 @@ spec:
       NodeOne: CRITICAL
       NodeTwo: DEBUG
     microflowConstants: # Optional, can be omitted : set values for microflow constants
-      PIB.Realm: {{ .Values.pibMendixRuntime.microflowConstants.realm}}
       PIB.ServerBaseUrl: {{ .Values.pibMendixRuntime.microflowConstants.serverBaseUrl}}
+      PIB.Realm: {{ .Values.pibMendixRuntime.microflowConstants.realm}}
       Administration.EnableMendixSSOUserMigration: "False"
       CommunityCommons.MergeMultiplePdfs_MaxAtOnce: "10"
       NanoflowCommons.Nanoflow_Commons_Version: "2.1.0"

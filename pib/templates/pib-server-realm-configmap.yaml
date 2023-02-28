@@ -8,5 +8,5 @@ data:
     }
 kind: ConfigMap
 metadata:
-  name: keycloak-realm-configmap
+  name: pibserver-realm-configmap
   

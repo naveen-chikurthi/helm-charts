@@ -1,39 +1,37 @@
-keycloak:
+pibServer:
     replicas: 1
     admin:
         username: admin
         password: password
-database:
-    vendor: postgres
-    host: keycloak-rds.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
-    port: 5432
-    dbName: keycloak_rds_db
-    admin:
-      username: postgres
-      password: postgres
+    database:
+        vendor: postgres
+        host: keycloak-rds.cyqc6dadtq9y.ap-south-1.rds.amazonaws.com
+        port: 5432
+        dbName: keycloak_rds_db
+        admin:
+          username: postgres
+          password: postgres
 pibMendixRuntime:
     database:
       servicePlan: eph-db
     storage: 
       servicePlan: eph-str
     mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user
-    sourceURL: https://github.com/naveen-chikurthi/helm-charts/raw/gh-pages1/resources/PIB/App_1.0.0.30.mda # URL of App's source MDA
+    sourceURL: https://github.com/naveen-chikurthi/helm-charts/raw/gh-pages1/resources/PIB/App_1.0.0.30.mda # Do not change this, unless you know why you want to change it
     appURL: pib.apps.openshift170220.des-non-prod.rnd.mendix.com # URL to access the app
     microflowConstants: 
-      realm: "pib-realm"
-      serverBaseUrl: "http://keycloak/auth/"
+      realm: "pib-realm" # Do not change this, unless you know why you want to change it
+      serverBaseUrl: "http://pibserver/auth/" # Do not change this, unless you know why you want to change it
 pibConfiguratorMendixRuntime:
     database:
       servicePlan: eph-db
     storage: 
       servicePlan: eph-str
     mxAdminPassword: QWRtaW5UZXN0QDEyMzQ= # base64 encoded password for MendixAdmin user
-    sourceURL: https://github.com/naveen-chikurthi/helm-charts/raw/gh-pages1/resources/PIBConfigurator/PIBConfigurator_1.0.0.83.mda
+    sourceURL: https://github.com/naveen-chikurthi/helm-charts/raw/gh-pages1/resources/PIBConfigurator/PIBConfigurator_1.0.0.83.mda # Do not change this, unless you know why you want to change it
     appURL: pibconfigurator.apps.openshift170220.des-non-prod.rnd.mendix.com
     microflowConstants:  
-      adminClientID: "admin-cli"
-      logNode: "PIBConfigurator"
-      password: "password"
-      realm: "pib-realm"
-      serverBaseUrl: "http://keycloak/auth/"
-      username: "admin"
+      adminClientID: "admin-cli" # Do not change this, unless you know why you want to change it
+      realm: "pib-realm" # Do not change this, unless you know why you want to change it
+      serverBaseUrl: "http://pibserver/auth/" # Do not change this, unless you know why you want to change it
+      logNode: "PIBConfigurator" # Do not change this, unless you know why you want to change it

@@ -14,13 +14,6 @@ spec:
     # Enable or disable TLS for the app
     enableTLS: true    
   replicas: 1 # Number of replicas, set to 0 to stop all replicas
-  resources: # Optional, can be omitted : set resources for Mendix Runtime container 
-    limits: # Upper limit - process will be stopped if it tries to use more
-      cpu: 500m # 500 millicores - half of a vCPU
-      memory: 512Mi # 512 megabytes - suitable for small-scale non-production apps
-    requests: # Lower limit - needs at least these resources
-      cpu: 100m
-      memory: 512Mi
   runtimeDeploymentPodAnnotations: # Optional, can be omitted : set custom annotations for Mendix Runtime Pods
     # example: inject the Linkerd proxy sidecar
     linkerd.io/inject: enabled
@@ -32,12 +25,12 @@ spec:
       NodeOne: CRITICAL
       NodeTwo: DEBUG
     microflowConstants: # Optional, can be omitted : set values for microflow constants
-      PIBConfigurator.AdminClientID: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.adminClientID }}
-      PIBConfigurator.LogNode: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.logNode }}
-      PIBConfigurator.Password: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.password }}
-      PIBConfigurator.Realm: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.realm }}
       PIBConfigurator.ServerBaseUrl: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.serverBaseUrl }}
-      PIBConfigurator.Username: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.username }}
+      PIBConfigurator.AdminClientID: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.adminClientID }}
+      PIBConfigurator.Username: {{ .Values.pibServer.admin.username }}
+      PIBConfigurator.Password: {{ .Values.pibServer.admin.password }}
+      PIBConfigurator.Realm: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.realm }}
+      PIBConfigurator.LogNode: {{ .Values.pibConfiguratorMendixRuntime.microflowConstants.logNode }}
       Administration.EnableMendixSSOUserMigration: "False"
       NanoflowCommons.Nanoflow_Commons_Version: "2.1.0"
       WebActions.WebActions_Version: "2.4.0"
